@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @posts = BlogPost.order created_at: :desc
+    @posts = BlogPost.all
     respond_to do |format|
       format.html
     end

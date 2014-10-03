@@ -15,8 +15,10 @@
             / a href="#"  Start Bootstrap
             | on #{posted_on(post.created_at)}
 
-          p.tags
-            i.glyphicon.glyphicon-tags
-            = post_tags( post.hash_tags )
+          - if post.hash_tags.any?
+            p.tags
+              i.glyphicon.glyphicon-tags
+              = " "
+              = post_tags( post.hash_tags )
 
         hr

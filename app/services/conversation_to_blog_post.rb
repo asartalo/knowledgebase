@@ -9,7 +9,8 @@ class ConversationToBlogPost
   def to_blog_post
     BlogPost.create(
       title: title_text,
-      content: combined_content
+      content: combined_content,
+      hash_tags: combined_hash_tags
     )
   end
 
@@ -22,6 +23,10 @@ class ConversationToBlogPost
       cleanup_content(response.text)
     end
     texts.join("\n\n")
+  end
+
+  def combined_hash_tags
+    responses.collect(&:hash_tags).reduce(&:+)
   end
 
   def cleanup_content(text)
