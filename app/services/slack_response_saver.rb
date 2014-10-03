@@ -18,12 +18,25 @@ class SlackResponseSaver
     slack_response.hash_tags = hash_tags
     slack_response.save
 
-    # to be queued
-    BlogPost.create( title: "#{slack_response.user_name} @ #{slack_response.timestamp.strftime("%B %d, %Y")}", content: slack_response.text, hash_tags: hash_tags )
+    manage_conversations(slack_response)
 
   end
 
   private
+
+  def manage_conversations(slack_response)
+    threader = SlackConversationThreader.new
+
+    last = threader.last_conversation
+    current = threader.add(slack_response)
+    if current.complete?
+      ConversationToBlogPost.new(current).to_blog_post
+    end
+
+    if !last.nil? and last.id != current.id and last.complete?
+      ConversationToBlogPost.new(last).to_blog_post
+    end
+  end
 
   def timestamp
     Time.at(@params.delete(:timestamp).to_f).utc
