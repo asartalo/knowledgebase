@@ -1,0 +1,18 @@
+ruby:
+  image ||= nil
+  subheading ||= nil
+  if image
+    props = {style: "background-image: url('#{image_path(image)}')" }
+  else
+    props = {}
+  end
+
+header.intro-header*props
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          h1 = title
+          - if subheading
+            hr.small
+              span.subheading = subheading
