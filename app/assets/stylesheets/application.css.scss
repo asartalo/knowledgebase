@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  color: orange;
-}
+@import "variables";
+@import "mixins";
+@import "clean-blog";
