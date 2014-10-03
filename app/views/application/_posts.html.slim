@@ -11,14 +11,13 @@
           p= post.content
 
           p.post-meta
-            | Posted
+            ' Posted
             / a href="#"  Start Bootstrap
             | on #{posted_on(post.created_at)}
 
           - if post.hash_tags.any?
             p.tags
-              i.glyphicon.glyphicon-tags
-              = " "
+              i.glyphicon.glyphicon-tags>
               = post_tags( post.hash_tags )
 
         hr
