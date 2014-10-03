@@ -31,3 +31,6 @@ config/secrets.yml
 *.bowerrc
 bower.json
 .ruby-*
+
+
+/solr/development/*
