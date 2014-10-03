@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-6.col-md-offset-6
+      = form_tag(search_index_path, method: 'GET') do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control input-lg', placeholder: 'Search...'
+          span.input-group-btn
+            button.btn.btn-default Search!
