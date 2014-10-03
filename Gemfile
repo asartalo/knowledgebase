@@ -40,3 +40,7 @@ end
 # search
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+
+
+# thin
+gem 'thin'
