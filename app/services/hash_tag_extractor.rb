@@ -8,9 +8,6 @@ module HashTagExtractor
       string.scan(HASHTAG_REGEX)
     end
 
-
   end
-
-
 
 end

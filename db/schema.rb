@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003141537) do
+ActiveRecord::Schema.define(version: 20141003190340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,19 +24,26 @@ ActiveRecord::Schema.define(version: 20141003141537) do
     t.text     "hash_tags",  default: [], array: true
   end
 
+  create_table "slack_conversations", force: true do |t|
+    t.boolean  "complete",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "slack_responses", force: true do |t|
     t.string   "team_id"
     t.string   "team_domain"
-    t.integer  "service_id",   limit: 8
+    t.integer  "service_id",            limit: 8
     t.string   "channel_id"
     t.string   "channel_name"
     t.datetime "timestamp"
     t.string   "user_id"
     t.string   "user_name"
     t.text     "text"
-    t.text     "hash_tags",              default: [], array: true
+    t.text     "hash_tags",                       default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "slack_conversation_id"
   end
 
   add_index "slack_responses", ["text"], name: "index_slack_responses_on_text", using: :btree
