@@ -19,7 +19,7 @@ class SlackResponseSaver
     slack_response.save
 
     # to be queued
-    BlogPost.create( title: "#{slack_response.user_name} @ #{slack_response.timestamp.strftime("%B %d, %Y")}", content: slack_response.text ) 
+    BlogPost.create( title: "#{slack_response.user_name} @ #{slack_response.timestamp.strftime("%B %d, %Y")}", content: slack_response.text, hash_tags: hash_tags )
 
   end
 
