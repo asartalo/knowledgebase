@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :slack_response, only: [:create]
+  resources :tags, only: [:show]
 
 end

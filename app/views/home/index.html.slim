@@ -1,19 +1,2 @@
-= render 'layouts/header', image: 'home-bg.jpg', title: "Eavesdropper", subheading: "We are watching you!"
-
-/! Main Content
-.container
-  .row
-    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-      - @posts.each do |post|
-        .post-preview
-
-          a href="#"
-            h2.post-title= post.title
-            = simple_format post.content
-
-          p.post-meta
-            | Posted
-            / a href="#"  Start Bootstrap
-            | on #{posted_on(post.created_at)}
-      hr
+= render 'posts'
 
