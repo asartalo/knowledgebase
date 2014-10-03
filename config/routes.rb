@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :slack_response, only: [:create]
+
 end
