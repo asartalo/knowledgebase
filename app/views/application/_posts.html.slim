@@ -8,7 +8,10 @@
           a href="#"
             h2.post-title= post.title
 
-          p= post.content
+          - if post.slack_responses.any?
+            = render "responses", responses: post.slack_responses
+          - else
+            p= post.content
 
           p.post-meta
             ' Posted

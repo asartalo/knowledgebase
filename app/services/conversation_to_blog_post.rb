@@ -7,11 +7,16 @@ class ConversationToBlogPost
   end
 
   def to_blog_post
-    BlogPost.create(
+    post = BlogPost.new(
       title: title_text,
       content: combined_content,
       hash_tags: combined_hash_tags
     )
+    responses.each do |response|
+      post.slack_responses << response
+    end
+    post.save
+    post
   end
 
   def title_text

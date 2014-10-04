@@ -1,0 +1,8 @@
+ul.responses
+  - responses.each do |response|
+    li
+      .response-author
+        strong = response.user_name
+      .response-text
+        = response.text
+

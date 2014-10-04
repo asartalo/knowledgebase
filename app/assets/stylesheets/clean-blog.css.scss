@@ -4,7 +4,7 @@
 // Global Components
 
 body {
-	@include serif;
+	@include sans-serif;
 	font-size: 20px;
 	color: $gray-dark;
 }
@@ -455,4 +455,18 @@ img::-moz-selection {
 
 body {
 	webkit-tap-highlight-color: $brand-primary;
+}
+
+.responses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: 14px 0;
+  }
+
+  li + li {
+    border-top: 1px solid $gray-light;
+  }
 }

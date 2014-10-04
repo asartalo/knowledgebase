@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003190340) do
+ActiveRecord::Schema.define(version: 20141003233835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141003190340) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "slack_conversation_id"
+    t.integer  "blog_post_id"
   end
 
   add_index "slack_responses", ["text"], name: "index_slack_responses_on_text", using: :btree
